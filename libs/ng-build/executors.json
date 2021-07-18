@@ -1,0 +1,10 @@
+{
+  "executors": {
+    "ng-build": {
+      "implementation": "./src/executors/ng-build/ng-build.impl",
+      "batchImplementation": "./src/executors/ng-build/ng-build.impl#batchNgBuild",
+      "schema": "./src/executors/ng-build/schema.json",
+      "description": "ng build"
+    }
+  }
+}

@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-large-repo/ng-build": ["libs/ng-build/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
