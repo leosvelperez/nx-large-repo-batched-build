@@ -27,6 +27,581 @@
     ]
   },
   "projects": {
+    "app0": {
+      "tags": []
+    },
+    "app0-e2e": {
+      "tags": [],
+      "implicitDependencies": ["app0"]
+    },
+    "app0-lib0": {
+      "tags": []
+    },
+    "app0-lib0-core": {
+      "tags": []
+    },
+    "app0-lib0-lib0": {
+      "tags": []
+    },
+    "app0-lib0-lib0-lib0": {
+      "tags": []
+    },
+    "app0-lib0-lib0-lib1": {
+      "tags": []
+    },
+    "app0-lib0-lib0-lib2": {
+      "tags": []
+    },
+    "app0-lib0-lib0-lib3": {
+      "tags": []
+    },
+    "app0-lib0-lib0-lib4": {
+      "tags": []
+    },
+    "app0-lib0-lib1": {
+      "tags": []
+    },
+    "app0-lib0-lib1-lib0": {
+      "tags": []
+    },
+    "app0-lib0-lib1-lib1": {
+      "tags": []
+    },
+    "app0-lib0-lib1-lib2": {
+      "tags": []
+    },
+    "app0-lib0-lib1-lib3": {
+      "tags": []
+    },
+    "app0-lib0-lib1-lib4": {
+      "tags": []
+    },
+    "app0-lib0-lib2": {
+      "tags": []
+    },
+    "app0-lib0-lib2-lib0": {
+      "tags": []
+    },
+    "app0-lib0-lib2-lib1": {
+      "tags": []
+    },
+    "app0-lib0-lib2-lib2": {
+      "tags": []
+    },
+    "app0-lib0-lib2-lib3": {
+      "tags": []
+    },
+    "app0-lib0-lib2-lib4": {
+      "tags": []
+    },
+    "app0-lib0-lib3": {
+      "tags": []
+    },
+    "app0-lib0-lib3-lib0": {
+      "tags": []
+    },
+    "app0-lib0-lib3-lib1": {
+      "tags": []
+    },
+    "app0-lib0-lib3-lib2": {
+      "tags": []
+    },
+    "app0-lib0-lib3-lib3": {
+      "tags": []
+    },
+    "app0-lib0-lib3-lib4": {
+      "tags": []
+    },
+    "app0-lib0-lib4": {
+      "tags": []
+    },
+    "app0-lib0-lib4-lib0": {
+      "tags": []
+    },
+    "app0-lib0-lib4-lib1": {
+      "tags": []
+    },
+    "app0-lib0-lib4-lib2": {
+      "tags": []
+    },
+    "app0-lib0-lib4-lib3": {
+      "tags": []
+    },
+    "app0-lib0-lib4-lib4": {
+      "tags": []
+    },
+    "app0-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib0": {
+      "tags": []
+    },
+    "app0-lib1-lib0-lib0": {
+      "tags": []
+    },
+    "app0-lib1-lib0-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib0-lib2": {
+      "tags": []
+    },
+    "app0-lib1-lib0-lib3": {
+      "tags": []
+    },
+    "app0-lib1-lib0-lib4": {
+      "tags": []
+    },
+    "app0-lib1-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib1-lib0": {
+      "tags": []
+    },
+    "app0-lib1-lib1-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib1-lib2": {
+      "tags": []
+    },
+    "app0-lib1-lib1-lib3": {
+      "tags": []
+    },
+    "app0-lib1-lib1-lib4": {
+      "tags": []
+    },
+    "app0-lib1-lib2": {
+      "tags": []
+    },
+    "app0-lib1-lib2-lib0": {
+      "tags": []
+    },
+    "app0-lib1-lib2-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib2-lib2": {
+      "tags": []
+    },
+    "app0-lib1-lib2-lib3": {
+      "tags": []
+    },
+    "app0-lib1-lib2-lib4": {
+      "tags": []
+    },
+    "app0-lib1-lib3": {
+      "tags": []
+    },
+    "app0-lib1-lib3-lib0": {
+      "tags": []
+    },
+    "app0-lib1-lib3-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib3-lib2": {
+      "tags": []
+    },
+    "app0-lib1-lib3-lib3": {
+      "tags": []
+    },
+    "app0-lib1-lib3-lib4": {
+      "tags": []
+    },
+    "app0-lib1-lib4": {
+      "tags": []
+    },
+    "app0-lib1-lib4-lib0": {
+      "tags": []
+    },
+    "app0-lib1-lib4-lib1": {
+      "tags": []
+    },
+    "app0-lib1-lib4-lib2": {
+      "tags": []
+    },
+    "app0-lib1-lib4-lib3": {
+      "tags": []
+    },
+    "app0-lib1-lib4-lib4": {
+      "tags": []
+    },
+    "app0-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib0": {
+      "tags": []
+    },
+    "app0-lib2-lib0-lib0": {
+      "tags": []
+    },
+    "app0-lib2-lib0-lib1": {
+      "tags": []
+    },
+    "app0-lib2-lib0-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib0-lib3": {
+      "tags": []
+    },
+    "app0-lib2-lib0-lib4": {
+      "tags": []
+    },
+    "app0-lib2-lib1": {
+      "tags": []
+    },
+    "app0-lib2-lib1-lib0": {
+      "tags": []
+    },
+    "app0-lib2-lib1-lib1": {
+      "tags": []
+    },
+    "app0-lib2-lib1-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib1-lib3": {
+      "tags": []
+    },
+    "app0-lib2-lib1-lib4": {
+      "tags": []
+    },
+    "app0-lib2-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib2-lib0": {
+      "tags": []
+    },
+    "app0-lib2-lib2-lib1": {
+      "tags": []
+    },
+    "app0-lib2-lib2-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib2-lib3": {
+      "tags": []
+    },
+    "app0-lib2-lib2-lib4": {
+      "tags": []
+    },
+    "app0-lib2-lib3": {
+      "tags": []
+    },
+    "app0-lib2-lib3-lib0": {
+      "tags": []
+    },
+    "app0-lib2-lib3-lib1": {
+      "tags": []
+    },
+    "app0-lib2-lib3-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib3-lib3": {
+      "tags": []
+    },
+    "app0-lib2-lib3-lib4": {
+      "tags": []
+    },
+    "app0-lib2-lib4": {
+      "tags": []
+    },
+    "app0-lib2-lib4-lib0": {
+      "tags": []
+    },
+    "app0-lib2-lib4-lib1": {
+      "tags": []
+    },
+    "app0-lib2-lib4-lib2": {
+      "tags": []
+    },
+    "app0-lib2-lib4-lib3": {
+      "tags": []
+    },
+    "app0-lib2-lib4-lib4": {
+      "tags": []
+    },
+    "app1": {
+      "tags": []
+    },
+    "app1-e2e": {
+      "tags": [],
+      "implicitDependencies": ["app1"]
+    },
+    "app1-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib0-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib0-lib1": {
+      "tags": []
+    },
+    "app1-lib0-lib0-lib2": {
+      "tags": []
+    },
+    "app1-lib0-lib0-lib3": {
+      "tags": []
+    },
+    "app1-lib0-lib0-lib4": {
+      "tags": []
+    },
+    "app1-lib0-lib1": {
+      "tags": []
+    },
+    "app1-lib0-lib1-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib1-lib1": {
+      "tags": []
+    },
+    "app1-lib0-lib1-lib2": {
+      "tags": []
+    },
+    "app1-lib0-lib1-lib3": {
+      "tags": []
+    },
+    "app1-lib0-lib1-lib4": {
+      "tags": []
+    },
+    "app1-lib0-lib2": {
+      "tags": []
+    },
+    "app1-lib0-lib2-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib2-lib1": {
+      "tags": []
+    },
+    "app1-lib0-lib2-lib2": {
+      "tags": []
+    },
+    "app1-lib0-lib2-lib3": {
+      "tags": []
+    },
+    "app1-lib0-lib2-lib4": {
+      "tags": []
+    },
+    "app1-lib0-lib3": {
+      "tags": []
+    },
+    "app1-lib0-lib3-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib3-lib1": {
+      "tags": []
+    },
+    "app1-lib0-lib3-lib2": {
+      "tags": []
+    },
+    "app1-lib0-lib3-lib3": {
+      "tags": []
+    },
+    "app1-lib0-lib3-lib4": {
+      "tags": []
+    },
+    "app1-lib0-lib4": {
+      "tags": []
+    },
+    "app1-lib0-lib4-lib0": {
+      "tags": []
+    },
+    "app1-lib0-lib4-lib1": {
+      "tags": []
+    },
+    "app1-lib0-lib4-lib2": {
+      "tags": []
+    },
+    "app1-lib0-lib4-lib3": {
+      "tags": []
+    },
+    "app1-lib0-lib4-lib4": {
+      "tags": []
+    },
+    "app1-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib0": {
+      "tags": []
+    },
+    "app1-lib1-lib0-lib0": {
+      "tags": []
+    },
+    "app1-lib1-lib0-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib0-lib2": {
+      "tags": []
+    },
+    "app1-lib1-lib0-lib3": {
+      "tags": []
+    },
+    "app1-lib1-lib0-lib4": {
+      "tags": []
+    },
+    "app1-lib1-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib1-lib0": {
+      "tags": []
+    },
+    "app1-lib1-lib1-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib1-lib2": {
+      "tags": []
+    },
+    "app1-lib1-lib1-lib3": {
+      "tags": []
+    },
+    "app1-lib1-lib1-lib4": {
+      "tags": []
+    },
+    "app1-lib1-lib2": {
+      "tags": []
+    },
+    "app1-lib1-lib2-lib0": {
+      "tags": []
+    },
+    "app1-lib1-lib2-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib2-lib2": {
+      "tags": []
+    },
+    "app1-lib1-lib2-lib3": {
+      "tags": []
+    },
+    "app1-lib1-lib2-lib4": {
+      "tags": []
+    },
+    "app1-lib1-lib3": {
+      "tags": []
+    },
+    "app1-lib1-lib3-lib0": {
+      "tags": []
+    },
+    "app1-lib1-lib3-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib3-lib2": {
+      "tags": []
+    },
+    "app1-lib1-lib3-lib3": {
+      "tags": []
+    },
+    "app1-lib1-lib3-lib4": {
+      "tags": []
+    },
+    "app1-lib1-lib4": {
+      "tags": []
+    },
+    "app1-lib1-lib4-lib0": {
+      "tags": []
+    },
+    "app1-lib1-lib4-lib1": {
+      "tags": []
+    },
+    "app1-lib1-lib4-lib2": {
+      "tags": []
+    },
+    "app1-lib1-lib4-lib3": {
+      "tags": []
+    },
+    "app1-lib1-lib4-lib4": {
+      "tags": []
+    },
+    "app1-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib0": {
+      "tags": []
+    },
+    "app1-lib2-lib0-lib0": {
+      "tags": []
+    },
+    "app1-lib2-lib0-lib1": {
+      "tags": []
+    },
+    "app1-lib2-lib0-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib0-lib3": {
+      "tags": []
+    },
+    "app1-lib2-lib0-lib4": {
+      "tags": []
+    },
+    "app1-lib2-lib1": {
+      "tags": []
+    },
+    "app1-lib2-lib1-lib0": {
+      "tags": []
+    },
+    "app1-lib2-lib1-lib1": {
+      "tags": []
+    },
+    "app1-lib2-lib1-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib1-lib3": {
+      "tags": []
+    },
+    "app1-lib2-lib1-lib4": {
+      "tags": []
+    },
+    "app1-lib2-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib2-lib0": {
+      "tags": []
+    },
+    "app1-lib2-lib2-lib1": {
+      "tags": []
+    },
+    "app1-lib2-lib2-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib2-lib3": {
+      "tags": []
+    },
+    "app1-lib2-lib2-lib4": {
+      "tags": []
+    },
+    "app1-lib2-lib3": {
+      "tags": []
+    },
+    "app1-lib2-lib3-lib0": {
+      "tags": []
+    },
+    "app1-lib2-lib3-lib1": {
+      "tags": []
+    },
+    "app1-lib2-lib3-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib3-lib3": {
+      "tags": []
+    },
+    "app1-lib2-lib3-lib4": {
+      "tags": []
+    },
+    "app1-lib2-lib4": {
+      "tags": []
+    },
+    "app1-lib2-lib4-lib0": {
+      "tags": []
+    },
+    "app1-lib2-lib4-lib1": {
+      "tags": []
+    },
+    "app1-lib2-lib4-lib2": {
+      "tags": []
+    },
+    "app1-lib2-lib4-lib3": {
+      "tags": []
+    },
+    "app1-lib2-lib4-lib4": {
+      "tags": []
+    },
     "ng-build": {
       "tags": []
     }

@@ -1,0 +1,25 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { Lib1Lib3Lib3component74Component } from './lib1-lib3-lib3component74.component';
+
+describe('Lib1Lib3Lib3component74Component', () => {
+  let component: Lib1Lib3Lib3component74Component;
+  let fixture: ComponentFixture<Lib1Lib3Lib3component74Component>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ Lib1Lib3Lib3component74Component ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(Lib1Lib3Lib3component74Component);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -15,6 +15,493 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-large-repo/app0/lib0": ["libs/app0/lib0/src/index.ts"],
+      "@nx-large-repo/app0/lib0-core": ["libs/app0/lib0-core/src/index.ts"],
+      "@nx-large-repo/app0/lib0-lib0": ["libs/app0/lib0-lib0/src/index.ts"],
+      "@nx-large-repo/app0/lib0-lib0-lib0": [
+        "libs/app0/lib0-lib0-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib0-lib1": [
+        "libs/app0/lib0-lib0-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib0-lib2": [
+        "libs/app0/lib0-lib0-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib0-lib3": [
+        "libs/app0/lib0-lib0-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib0-lib4": [
+        "libs/app0/lib0-lib0-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib1": ["libs/app0/lib0-lib1/src/index.ts"],
+      "@nx-large-repo/app0/lib0-lib1-lib0": [
+        "libs/app0/lib0-lib1-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib1-lib1": [
+        "libs/app0/lib0-lib1-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib1-lib2": [
+        "libs/app0/lib0-lib1-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib1-lib3": [
+        "libs/app0/lib0-lib1-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib1-lib4": [
+        "libs/app0/lib0-lib1-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib2": ["libs/app0/lib0-lib2/src/index.ts"],
+      "@nx-large-repo/app0/lib0-lib2-lib0": [
+        "libs/app0/lib0-lib2-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib2-lib1": [
+        "libs/app0/lib0-lib2-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib2-lib2": [
+        "libs/app0/lib0-lib2-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib2-lib3": [
+        "libs/app0/lib0-lib2-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib2-lib4": [
+        "libs/app0/lib0-lib2-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib3": ["libs/app0/lib0-lib3/src/index.ts"],
+      "@nx-large-repo/app0/lib0-lib3-lib0": [
+        "libs/app0/lib0-lib3-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib3-lib1": [
+        "libs/app0/lib0-lib3-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib3-lib2": [
+        "libs/app0/lib0-lib3-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib3-lib3": [
+        "libs/app0/lib0-lib3-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib3-lib4": [
+        "libs/app0/lib0-lib3-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib4": ["libs/app0/lib0-lib4/src/index.ts"],
+      "@nx-large-repo/app0/lib0-lib4-lib0": [
+        "libs/app0/lib0-lib4-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib4-lib1": [
+        "libs/app0/lib0-lib4-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib4-lib2": [
+        "libs/app0/lib0-lib4-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib4-lib3": [
+        "libs/app0/lib0-lib4-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib0-lib4-lib4": [
+        "libs/app0/lib0-lib4-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1": ["libs/app0/lib1/src/index.ts"],
+      "@nx-large-repo/app0/lib1-lib0": ["libs/app0/lib1-lib0/src/index.ts"],
+      "@nx-large-repo/app0/lib1-lib0-lib0": [
+        "libs/app0/lib1-lib0-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib0-lib1": [
+        "libs/app0/lib1-lib0-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib0-lib2": [
+        "libs/app0/lib1-lib0-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib0-lib3": [
+        "libs/app0/lib1-lib0-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib0-lib4": [
+        "libs/app0/lib1-lib0-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib1": ["libs/app0/lib1-lib1/src/index.ts"],
+      "@nx-large-repo/app0/lib1-lib1-lib0": [
+        "libs/app0/lib1-lib1-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib1-lib1": [
+        "libs/app0/lib1-lib1-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib1-lib2": [
+        "libs/app0/lib1-lib1-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib1-lib3": [
+        "libs/app0/lib1-lib1-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib1-lib4": [
+        "libs/app0/lib1-lib1-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib2": ["libs/app0/lib1-lib2/src/index.ts"],
+      "@nx-large-repo/app0/lib1-lib2-lib0": [
+        "libs/app0/lib1-lib2-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib2-lib1": [
+        "libs/app0/lib1-lib2-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib2-lib2": [
+        "libs/app0/lib1-lib2-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib2-lib3": [
+        "libs/app0/lib1-lib2-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib2-lib4": [
+        "libs/app0/lib1-lib2-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib3": ["libs/app0/lib1-lib3/src/index.ts"],
+      "@nx-large-repo/app0/lib1-lib3-lib0": [
+        "libs/app0/lib1-lib3-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib3-lib1": [
+        "libs/app0/lib1-lib3-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib3-lib2": [
+        "libs/app0/lib1-lib3-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib3-lib3": [
+        "libs/app0/lib1-lib3-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib3-lib4": [
+        "libs/app0/lib1-lib3-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib4": ["libs/app0/lib1-lib4/src/index.ts"],
+      "@nx-large-repo/app0/lib1-lib4-lib0": [
+        "libs/app0/lib1-lib4-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib4-lib1": [
+        "libs/app0/lib1-lib4-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib4-lib2": [
+        "libs/app0/lib1-lib4-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib4-lib3": [
+        "libs/app0/lib1-lib4-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib1-lib4-lib4": [
+        "libs/app0/lib1-lib4-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2": ["libs/app0/lib2/src/index.ts"],
+      "@nx-large-repo/app0/lib2-lib0": ["libs/app0/lib2-lib0/src/index.ts"],
+      "@nx-large-repo/app0/lib2-lib0-lib0": [
+        "libs/app0/lib2-lib0-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib0-lib1": [
+        "libs/app0/lib2-lib0-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib0-lib2": [
+        "libs/app0/lib2-lib0-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib0-lib3": [
+        "libs/app0/lib2-lib0-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib0-lib4": [
+        "libs/app0/lib2-lib0-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib1": ["libs/app0/lib2-lib1/src/index.ts"],
+      "@nx-large-repo/app0/lib2-lib1-lib0": [
+        "libs/app0/lib2-lib1-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib1-lib1": [
+        "libs/app0/lib2-lib1-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib1-lib2": [
+        "libs/app0/lib2-lib1-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib1-lib3": [
+        "libs/app0/lib2-lib1-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib1-lib4": [
+        "libs/app0/lib2-lib1-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib2": ["libs/app0/lib2-lib2/src/index.ts"],
+      "@nx-large-repo/app0/lib2-lib2-lib0": [
+        "libs/app0/lib2-lib2-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib2-lib1": [
+        "libs/app0/lib2-lib2-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib2-lib2": [
+        "libs/app0/lib2-lib2-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib2-lib3": [
+        "libs/app0/lib2-lib2-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib2-lib4": [
+        "libs/app0/lib2-lib2-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib3": ["libs/app0/lib2-lib3/src/index.ts"],
+      "@nx-large-repo/app0/lib2-lib3-lib0": [
+        "libs/app0/lib2-lib3-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib3-lib1": [
+        "libs/app0/lib2-lib3-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib3-lib2": [
+        "libs/app0/lib2-lib3-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib3-lib3": [
+        "libs/app0/lib2-lib3-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib3-lib4": [
+        "libs/app0/lib2-lib3-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib4": ["libs/app0/lib2-lib4/src/index.ts"],
+      "@nx-large-repo/app0/lib2-lib4-lib0": [
+        "libs/app0/lib2-lib4-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib4-lib1": [
+        "libs/app0/lib2-lib4-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib4-lib2": [
+        "libs/app0/lib2-lib4-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib4-lib3": [
+        "libs/app0/lib2-lib4-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app0/lib2-lib4-lib4": [
+        "libs/app0/lib2-lib4-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0": ["libs/app1/lib0/src/index.ts"],
+      "@nx-large-repo/app1/lib0-lib0": ["libs/app1/lib0-lib0/src/index.ts"],
+      "@nx-large-repo/app1/lib0-lib0-lib0": [
+        "libs/app1/lib0-lib0-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib0-lib1": [
+        "libs/app1/lib0-lib0-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib0-lib2": [
+        "libs/app1/lib0-lib0-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib0-lib3": [
+        "libs/app1/lib0-lib0-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib0-lib4": [
+        "libs/app1/lib0-lib0-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib1": ["libs/app1/lib0-lib1/src/index.ts"],
+      "@nx-large-repo/app1/lib0-lib1-lib0": [
+        "libs/app1/lib0-lib1-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib1-lib1": [
+        "libs/app1/lib0-lib1-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib1-lib2": [
+        "libs/app1/lib0-lib1-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib1-lib3": [
+        "libs/app1/lib0-lib1-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib1-lib4": [
+        "libs/app1/lib0-lib1-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib2": ["libs/app1/lib0-lib2/src/index.ts"],
+      "@nx-large-repo/app1/lib0-lib2-lib0": [
+        "libs/app1/lib0-lib2-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib2-lib1": [
+        "libs/app1/lib0-lib2-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib2-lib2": [
+        "libs/app1/lib0-lib2-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib2-lib3": [
+        "libs/app1/lib0-lib2-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib2-lib4": [
+        "libs/app1/lib0-lib2-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib3": ["libs/app1/lib0-lib3/src/index.ts"],
+      "@nx-large-repo/app1/lib0-lib3-lib0": [
+        "libs/app1/lib0-lib3-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib3-lib1": [
+        "libs/app1/lib0-lib3-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib3-lib2": [
+        "libs/app1/lib0-lib3-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib3-lib3": [
+        "libs/app1/lib0-lib3-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib3-lib4": [
+        "libs/app1/lib0-lib3-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib4": ["libs/app1/lib0-lib4/src/index.ts"],
+      "@nx-large-repo/app1/lib0-lib4-lib0": [
+        "libs/app1/lib0-lib4-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib4-lib1": [
+        "libs/app1/lib0-lib4-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib4-lib2": [
+        "libs/app1/lib0-lib4-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib4-lib3": [
+        "libs/app1/lib0-lib4-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib0-lib4-lib4": [
+        "libs/app1/lib0-lib4-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1": ["libs/app1/lib1/src/index.ts"],
+      "@nx-large-repo/app1/lib1-lib0": ["libs/app1/lib1-lib0/src/index.ts"],
+      "@nx-large-repo/app1/lib1-lib0-lib0": [
+        "libs/app1/lib1-lib0-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib0-lib1": [
+        "libs/app1/lib1-lib0-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib0-lib2": [
+        "libs/app1/lib1-lib0-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib0-lib3": [
+        "libs/app1/lib1-lib0-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib0-lib4": [
+        "libs/app1/lib1-lib0-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib1": ["libs/app1/lib1-lib1/src/index.ts"],
+      "@nx-large-repo/app1/lib1-lib1-lib0": [
+        "libs/app1/lib1-lib1-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib1-lib1": [
+        "libs/app1/lib1-lib1-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib1-lib2": [
+        "libs/app1/lib1-lib1-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib1-lib3": [
+        "libs/app1/lib1-lib1-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib1-lib4": [
+        "libs/app1/lib1-lib1-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib2": ["libs/app1/lib1-lib2/src/index.ts"],
+      "@nx-large-repo/app1/lib1-lib2-lib0": [
+        "libs/app1/lib1-lib2-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib2-lib1": [
+        "libs/app1/lib1-lib2-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib2-lib2": [
+        "libs/app1/lib1-lib2-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib2-lib3": [
+        "libs/app1/lib1-lib2-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib2-lib4": [
+        "libs/app1/lib1-lib2-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib3": ["libs/app1/lib1-lib3/src/index.ts"],
+      "@nx-large-repo/app1/lib1-lib3-lib0": [
+        "libs/app1/lib1-lib3-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib3-lib1": [
+        "libs/app1/lib1-lib3-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib3-lib2": [
+        "libs/app1/lib1-lib3-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib3-lib3": [
+        "libs/app1/lib1-lib3-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib3-lib4": [
+        "libs/app1/lib1-lib3-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib4": ["libs/app1/lib1-lib4/src/index.ts"],
+      "@nx-large-repo/app1/lib1-lib4-lib0": [
+        "libs/app1/lib1-lib4-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib4-lib1": [
+        "libs/app1/lib1-lib4-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib4-lib2": [
+        "libs/app1/lib1-lib4-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib4-lib3": [
+        "libs/app1/lib1-lib4-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib1-lib4-lib4": [
+        "libs/app1/lib1-lib4-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2": ["libs/app1/lib2/src/index.ts"],
+      "@nx-large-repo/app1/lib2-lib0": ["libs/app1/lib2-lib0/src/index.ts"],
+      "@nx-large-repo/app1/lib2-lib0-lib0": [
+        "libs/app1/lib2-lib0-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib0-lib1": [
+        "libs/app1/lib2-lib0-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib0-lib2": [
+        "libs/app1/lib2-lib0-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib0-lib3": [
+        "libs/app1/lib2-lib0-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib0-lib4": [
+        "libs/app1/lib2-lib0-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib1": ["libs/app1/lib2-lib1/src/index.ts"],
+      "@nx-large-repo/app1/lib2-lib1-lib0": [
+        "libs/app1/lib2-lib1-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib1-lib1": [
+        "libs/app1/lib2-lib1-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib1-lib2": [
+        "libs/app1/lib2-lib1-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib1-lib3": [
+        "libs/app1/lib2-lib1-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib1-lib4": [
+        "libs/app1/lib2-lib1-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib2": ["libs/app1/lib2-lib2/src/index.ts"],
+      "@nx-large-repo/app1/lib2-lib2-lib0": [
+        "libs/app1/lib2-lib2-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib2-lib1": [
+        "libs/app1/lib2-lib2-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib2-lib2": [
+        "libs/app1/lib2-lib2-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib2-lib3": [
+        "libs/app1/lib2-lib2-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib2-lib4": [
+        "libs/app1/lib2-lib2-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib3": ["libs/app1/lib2-lib3/src/index.ts"],
+      "@nx-large-repo/app1/lib2-lib3-lib0": [
+        "libs/app1/lib2-lib3-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib3-lib1": [
+        "libs/app1/lib2-lib3-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib3-lib2": [
+        "libs/app1/lib2-lib3-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib3-lib3": [
+        "libs/app1/lib2-lib3-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib3-lib4": [
+        "libs/app1/lib2-lib3-lib4/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib4": ["libs/app1/lib2-lib4/src/index.ts"],
+      "@nx-large-repo/app1/lib2-lib4-lib0": [
+        "libs/app1/lib2-lib4-lib0/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib4-lib1": [
+        "libs/app1/lib2-lib4-lib1/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib4-lib2": [
+        "libs/app1/lib2-lib4-lib2/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib4-lib3": [
+        "libs/app1/lib2-lib4-lib3/src/index.ts"
+      ],
+      "@nx-large-repo/app1/lib2-lib4-lib4": [
+        "libs/app1/lib2-lib4-lib4/src/index.ts"
+      ],
       "@nx-large-repo/ng-build": ["libs/ng-build/src/index.ts"]
     }
   },

@@ -1,6 +1,6042 @@
 {
   "version": 2,
   "projects": {
+    "app0": {
+      "projectType": "application",
+      "root": "apps/app0",
+      "sourceRoot": "apps/app0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:webpack-browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/app0",
+            "index": "apps/app0/src/index.html",
+            "main": "apps/app0/src/main.ts",
+            "polyfills": "apps/app0/src/polyfills.ts",
+            "tsConfig": "apps/app0/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/app0/src/favicon.ico", "apps/app0/src/assets"],
+            "styles": ["apps/app0/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "50000kb",
+                  "maximumError": "100mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/app0/src/environments/environment.ts",
+                  "with": "apps/app0/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@nrwl/web:file-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "app0:build:development"
+            },
+            "production": {
+              "buildTarget": "app0:build:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app0:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/app0/src/**/*.ts",
+              "apps/app0/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/app0"],
+          "options": {
+            "jestConfig": "apps/app0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app0-e2e": {
+      "root": "apps/app0-e2e",
+      "sourceRoot": "apps/app0-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/app0-e2e/cypress.json",
+            "tsConfig": "apps/app0-e2e/tsconfig.e2e.json",
+            "devServerTarget": "app0:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app0:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/app0-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "app0-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0",
+      "sourceRoot": "libs/app0/lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0/src/**/*.ts",
+              "libs/app0/lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-core": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-core",
+      "sourceRoot": "libs/app0/lib0-core/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "outputs": ["dist/libs/app0/lib0-core"],
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-core/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-core/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-core"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-core/src/**/*.ts",
+              "libs/app0/lib0-core/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib0",
+      "sourceRoot": "libs/app0/lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib0/src/**/*.ts",
+              "libs/app0/lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib0-lib0",
+      "sourceRoot": "libs/app0/lib0-lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib0-lib0/src/**/*.ts",
+              "libs/app0/lib0-lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib0-lib1",
+      "sourceRoot": "libs/app0/lib0-lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib0-lib1/src/**/*.ts",
+              "libs/app0/lib0-lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib0-lib2",
+      "sourceRoot": "libs/app0/lib0-lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib0-lib2/src/**/*.ts",
+              "libs/app0/lib0-lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib0-lib3",
+      "sourceRoot": "libs/app0/lib0-lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib0-lib3/src/**/*.ts",
+              "libs/app0/lib0-lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib0-lib4",
+      "sourceRoot": "libs/app0/lib0-lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib0-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib0-lib4/src/**/*.ts",
+              "libs/app0/lib0-lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib1",
+      "sourceRoot": "libs/app0/lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib1/src/**/*.ts",
+              "libs/app0/lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib1-lib0",
+      "sourceRoot": "libs/app0/lib0-lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib1-lib0/src/**/*.ts",
+              "libs/app0/lib0-lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib1-lib1",
+      "sourceRoot": "libs/app0/lib0-lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib1-lib1/src/**/*.ts",
+              "libs/app0/lib0-lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib1-lib2",
+      "sourceRoot": "libs/app0/lib0-lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib1-lib2/src/**/*.ts",
+              "libs/app0/lib0-lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib1-lib3",
+      "sourceRoot": "libs/app0/lib0-lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib1-lib3/src/**/*.ts",
+              "libs/app0/lib0-lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib1-lib4",
+      "sourceRoot": "libs/app0/lib0-lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib1-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib1-lib4/src/**/*.ts",
+              "libs/app0/lib0-lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib2",
+      "sourceRoot": "libs/app0/lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib2/src/**/*.ts",
+              "libs/app0/lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib2-lib0",
+      "sourceRoot": "libs/app0/lib0-lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib2-lib0/src/**/*.ts",
+              "libs/app0/lib0-lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib2-lib1",
+      "sourceRoot": "libs/app0/lib0-lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib2-lib1/src/**/*.ts",
+              "libs/app0/lib0-lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib2-lib2",
+      "sourceRoot": "libs/app0/lib0-lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib2-lib2/src/**/*.ts",
+              "libs/app0/lib0-lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib2-lib3",
+      "sourceRoot": "libs/app0/lib0-lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib2-lib3/src/**/*.ts",
+              "libs/app0/lib0-lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib2-lib4",
+      "sourceRoot": "libs/app0/lib0-lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib2-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib2-lib4/src/**/*.ts",
+              "libs/app0/lib0-lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib3",
+      "sourceRoot": "libs/app0/lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib3/src/**/*.ts",
+              "libs/app0/lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib3-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib3-lib0",
+      "sourceRoot": "libs/app0/lib0-lib3-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib3-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib3-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib3-lib0/src/**/*.ts",
+              "libs/app0/lib0-lib3-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib3-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib3-lib1",
+      "sourceRoot": "libs/app0/lib0-lib3-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib3-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib3-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib3-lib1/src/**/*.ts",
+              "libs/app0/lib0-lib3-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib3-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib3-lib2",
+      "sourceRoot": "libs/app0/lib0-lib3-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib3-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib3-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib3-lib2/src/**/*.ts",
+              "libs/app0/lib0-lib3-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib3-lib3",
+      "sourceRoot": "libs/app0/lib0-lib3-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib3-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib3-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib3-lib3/src/**/*.ts",
+              "libs/app0/lib0-lib3-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib3-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib3-lib4",
+      "sourceRoot": "libs/app0/lib0-lib3-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib3-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib3-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib3-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib3-lib4/src/**/*.ts",
+              "libs/app0/lib0-lib3-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib4",
+      "sourceRoot": "libs/app0/lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib4/src/**/*.ts",
+              "libs/app0/lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib4-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib4-lib0",
+      "sourceRoot": "libs/app0/lib0-lib4-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib4-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib4-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib4-lib0/src/**/*.ts",
+              "libs/app0/lib0-lib4-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib4-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib4-lib1",
+      "sourceRoot": "libs/app0/lib0-lib4-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib4-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib4-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib4-lib1/src/**/*.ts",
+              "libs/app0/lib0-lib4-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib4-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib4-lib2",
+      "sourceRoot": "libs/app0/lib0-lib4-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib4-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib4-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib4-lib2/src/**/*.ts",
+              "libs/app0/lib0-lib4-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib4-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib4-lib3",
+      "sourceRoot": "libs/app0/lib0-lib4-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib4-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib4-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib4-lib3/src/**/*.ts",
+              "libs/app0/lib0-lib4-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0-lib4-lib4",
+      "sourceRoot": "libs/app0/lib0-lib4-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib0-lib4-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib0-lib4-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib0-lib4-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib0-lib4-lib4/src/**/*.ts",
+              "libs/app0/lib0-lib4-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1",
+      "sourceRoot": "libs/app0/lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1/src/**/*.ts",
+              "libs/app0/lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib0",
+      "sourceRoot": "libs/app0/lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib0/src/**/*.ts",
+              "libs/app0/lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib0-lib0",
+      "sourceRoot": "libs/app0/lib1-lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib0-lib0/src/**/*.ts",
+              "libs/app0/lib1-lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib0-lib1",
+      "sourceRoot": "libs/app0/lib1-lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib0-lib1/src/**/*.ts",
+              "libs/app0/lib1-lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib0-lib2",
+      "sourceRoot": "libs/app0/lib1-lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib0-lib2/src/**/*.ts",
+              "libs/app0/lib1-lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib0-lib3",
+      "sourceRoot": "libs/app0/lib1-lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib0-lib3/src/**/*.ts",
+              "libs/app0/lib1-lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib0-lib4",
+      "sourceRoot": "libs/app0/lib1-lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib0-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib0-lib4/src/**/*.ts",
+              "libs/app0/lib1-lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib1",
+      "sourceRoot": "libs/app0/lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib1/src/**/*.ts",
+              "libs/app0/lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib1-lib0",
+      "sourceRoot": "libs/app0/lib1-lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib1-lib0/src/**/*.ts",
+              "libs/app0/lib1-lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib1-lib1",
+      "sourceRoot": "libs/app0/lib1-lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib1-lib1/src/**/*.ts",
+              "libs/app0/lib1-lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib1-lib2",
+      "sourceRoot": "libs/app0/lib1-lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib1-lib2/src/**/*.ts",
+              "libs/app0/lib1-lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib1-lib3",
+      "sourceRoot": "libs/app0/lib1-lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib1-lib3/src/**/*.ts",
+              "libs/app0/lib1-lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib1-lib4",
+      "sourceRoot": "libs/app0/lib1-lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib1-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib1-lib4/src/**/*.ts",
+              "libs/app0/lib1-lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib2",
+      "sourceRoot": "libs/app0/lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib2/src/**/*.ts",
+              "libs/app0/lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib2-lib0",
+      "sourceRoot": "libs/app0/lib1-lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib2-lib0/src/**/*.ts",
+              "libs/app0/lib1-lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib2-lib1",
+      "sourceRoot": "libs/app0/lib1-lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib2-lib1/src/**/*.ts",
+              "libs/app0/lib1-lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib2-lib2",
+      "sourceRoot": "libs/app0/lib1-lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib2-lib2/src/**/*.ts",
+              "libs/app0/lib1-lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib2-lib3",
+      "sourceRoot": "libs/app0/lib1-lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib2-lib3/src/**/*.ts",
+              "libs/app0/lib1-lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib2-lib4",
+      "sourceRoot": "libs/app0/lib1-lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib2-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib2-lib4/src/**/*.ts",
+              "libs/app0/lib1-lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib3",
+      "sourceRoot": "libs/app0/lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib3/src/**/*.ts",
+              "libs/app0/lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib3-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib3-lib0",
+      "sourceRoot": "libs/app0/lib1-lib3-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib3-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib3-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib3-lib0/src/**/*.ts",
+              "libs/app0/lib1-lib3-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib3-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib3-lib1",
+      "sourceRoot": "libs/app0/lib1-lib3-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib3-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib3-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib3-lib1/src/**/*.ts",
+              "libs/app0/lib1-lib3-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib3-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib3-lib2",
+      "sourceRoot": "libs/app0/lib1-lib3-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib3-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib3-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib3-lib2/src/**/*.ts",
+              "libs/app0/lib1-lib3-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib3-lib3",
+      "sourceRoot": "libs/app0/lib1-lib3-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib3-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib3-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib3-lib3/src/**/*.ts",
+              "libs/app0/lib1-lib3-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib3-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib3-lib4",
+      "sourceRoot": "libs/app0/lib1-lib3-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib3-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib3-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib3-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib3-lib4/src/**/*.ts",
+              "libs/app0/lib1-lib3-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib4",
+      "sourceRoot": "libs/app0/lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib4/src/**/*.ts",
+              "libs/app0/lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib4-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib4-lib0",
+      "sourceRoot": "libs/app0/lib1-lib4-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib4-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib4-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib4-lib0/src/**/*.ts",
+              "libs/app0/lib1-lib4-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib4-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib4-lib1",
+      "sourceRoot": "libs/app0/lib1-lib4-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib4-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib4-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib4-lib1/src/**/*.ts",
+              "libs/app0/lib1-lib4-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib4-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib4-lib2",
+      "sourceRoot": "libs/app0/lib1-lib4-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib4-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib4-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib4-lib2/src/**/*.ts",
+              "libs/app0/lib1-lib4-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib4-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib4-lib3",
+      "sourceRoot": "libs/app0/lib1-lib4-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib4-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib4-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib4-lib3/src/**/*.ts",
+              "libs/app0/lib1-lib4-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib1-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1-lib4-lib4",
+      "sourceRoot": "libs/app0/lib1-lib4-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib1-lib4-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib1-lib4-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib1-lib4-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib1-lib4-lib4/src/**/*.ts",
+              "libs/app0/lib1-lib4-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2",
+      "sourceRoot": "libs/app0/lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2/src/**/*.ts",
+              "libs/app0/lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib0",
+      "sourceRoot": "libs/app0/lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib0/src/**/*.ts",
+              "libs/app0/lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib0-lib0",
+      "sourceRoot": "libs/app0/lib2-lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib0-lib0/src/**/*.ts",
+              "libs/app0/lib2-lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib0-lib1",
+      "sourceRoot": "libs/app0/lib2-lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib0-lib1/src/**/*.ts",
+              "libs/app0/lib2-lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib0-lib2",
+      "sourceRoot": "libs/app0/lib2-lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib0-lib2/src/**/*.ts",
+              "libs/app0/lib2-lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib0-lib3",
+      "sourceRoot": "libs/app0/lib2-lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib0-lib3/src/**/*.ts",
+              "libs/app0/lib2-lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib0-lib4",
+      "sourceRoot": "libs/app0/lib2-lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib0-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib0-lib4/src/**/*.ts",
+              "libs/app0/lib2-lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib1",
+      "sourceRoot": "libs/app0/lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib1/src/**/*.ts",
+              "libs/app0/lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib1-lib0",
+      "sourceRoot": "libs/app0/lib2-lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib1-lib0/src/**/*.ts",
+              "libs/app0/lib2-lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib1-lib1",
+      "sourceRoot": "libs/app0/lib2-lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib1-lib1/src/**/*.ts",
+              "libs/app0/lib2-lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib1-lib2",
+      "sourceRoot": "libs/app0/lib2-lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib1-lib2/src/**/*.ts",
+              "libs/app0/lib2-lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib1-lib3",
+      "sourceRoot": "libs/app0/lib2-lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib1-lib3/src/**/*.ts",
+              "libs/app0/lib2-lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib1-lib4",
+      "sourceRoot": "libs/app0/lib2-lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib1-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib1-lib4/src/**/*.ts",
+              "libs/app0/lib2-lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib2",
+      "sourceRoot": "libs/app0/lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib2/src/**/*.ts",
+              "libs/app0/lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib2-lib0",
+      "sourceRoot": "libs/app0/lib2-lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib2-lib0/src/**/*.ts",
+              "libs/app0/lib2-lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib2-lib1",
+      "sourceRoot": "libs/app0/lib2-lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib2-lib1/src/**/*.ts",
+              "libs/app0/lib2-lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib2-lib2",
+      "sourceRoot": "libs/app0/lib2-lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib2-lib2/src/**/*.ts",
+              "libs/app0/lib2-lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib2-lib3",
+      "sourceRoot": "libs/app0/lib2-lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib2-lib3/src/**/*.ts",
+              "libs/app0/lib2-lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib2-lib4",
+      "sourceRoot": "libs/app0/lib2-lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib2-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib2-lib4/src/**/*.ts",
+              "libs/app0/lib2-lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib3",
+      "sourceRoot": "libs/app0/lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib3/src/**/*.ts",
+              "libs/app0/lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib3-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib3-lib0",
+      "sourceRoot": "libs/app0/lib2-lib3-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib3-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib3-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib3-lib0/src/**/*.ts",
+              "libs/app0/lib2-lib3-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib3-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib3-lib1",
+      "sourceRoot": "libs/app0/lib2-lib3-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib3-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib3-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib3-lib1/src/**/*.ts",
+              "libs/app0/lib2-lib3-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib3-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib3-lib2",
+      "sourceRoot": "libs/app0/lib2-lib3-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib3-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib3-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib3-lib2/src/**/*.ts",
+              "libs/app0/lib2-lib3-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib3-lib3",
+      "sourceRoot": "libs/app0/lib2-lib3-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib3-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib3-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib3-lib3/src/**/*.ts",
+              "libs/app0/lib2-lib3-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib3-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib3-lib4",
+      "sourceRoot": "libs/app0/lib2-lib3-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib3-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib3-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib3-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib3-lib4/src/**/*.ts",
+              "libs/app0/lib2-lib3-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib4",
+      "sourceRoot": "libs/app0/lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib4/src/**/*.ts",
+              "libs/app0/lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib4-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib4-lib0",
+      "sourceRoot": "libs/app0/lib2-lib4-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib0/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib0/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib4-lib0"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib4-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib4-lib0/src/**/*.ts",
+              "libs/app0/lib2-lib4-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib4-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib4-lib1",
+      "sourceRoot": "libs/app0/lib2-lib4-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib1/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib1/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib4-lib1"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib4-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib4-lib1/src/**/*.ts",
+              "libs/app0/lib2-lib4-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib4-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib4-lib2",
+      "sourceRoot": "libs/app0/lib2-lib4-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib2/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib2/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib4-lib2"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib4-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib4-lib2/src/**/*.ts",
+              "libs/app0/lib2-lib4-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib4-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib4-lib3",
+      "sourceRoot": "libs/app0/lib2-lib4-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib3/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib3/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib4-lib3"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib4-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib4-lib3/src/**/*.ts",
+              "libs/app0/lib2-lib4-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app0-lib2-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2-lib4-lib4",
+      "sourceRoot": "libs/app0/lib2-lib4-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "./build/libs/ng-build:ng-build",
+          "configurations": {
+            "development": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib4/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "./libs/app0/lib2-lib4-lib4/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app0/lib2-lib4-lib4"],
+          "options": {
+            "jestConfig": "libs/app0/lib2-lib4-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app0/lib2-lib4-lib4/src/**/*.ts",
+              "libs/app0/lib2-lib4-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1": {
+      "projectType": "application",
+      "root": "apps/app1",
+      "sourceRoot": "apps/app1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/app1",
+            "index": "apps/app1/src/index.html",
+            "main": "apps/app1/src/main.ts",
+            "polyfills": "apps/app1/src/polyfills.ts",
+            "tsConfig": "apps/app1/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/app1/src/favicon.ico", "apps/app1/src/assets"],
+            "styles": ["apps/app1/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "50000kb",
+                  "maximumError": "100mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/app1/src/environments/environment.ts",
+                  "with": "apps/app1/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app1:build:production"
+            },
+            "development": {
+              "browserTarget": "app1:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app1:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/app1/src/**/*.ts",
+              "apps/app1/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/app1"],
+          "options": {
+            "jestConfig": "apps/app1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app1-e2e": {
+      "root": "apps/app1-e2e",
+      "sourceRoot": "apps/app1-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/app1-e2e/cypress.json",
+            "tsConfig": "apps/app1-e2e/tsconfig.e2e.json",
+            "devServerTarget": "app1:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app1:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/app1-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "app1-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0",
+      "sourceRoot": "libs/app1/lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0/src/**/*.ts",
+              "libs/app1/lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib0",
+      "sourceRoot": "libs/app1/lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib0/src/**/*.ts",
+              "libs/app1/lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib0-lib0",
+      "sourceRoot": "libs/app1/lib0-lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib0-lib0/src/**/*.ts",
+              "libs/app1/lib0-lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib0-lib1",
+      "sourceRoot": "libs/app1/lib0-lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib0-lib1/src/**/*.ts",
+              "libs/app1/lib0-lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib0-lib2",
+      "sourceRoot": "libs/app1/lib0-lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib0-lib2/src/**/*.ts",
+              "libs/app1/lib0-lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib0-lib3",
+      "sourceRoot": "libs/app1/lib0-lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib0-lib3/src/**/*.ts",
+              "libs/app1/lib0-lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib0-lib4",
+      "sourceRoot": "libs/app1/lib0-lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib0-lib4/src/**/*.ts",
+              "libs/app1/lib0-lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib1",
+      "sourceRoot": "libs/app1/lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib1/src/**/*.ts",
+              "libs/app1/lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib1-lib0",
+      "sourceRoot": "libs/app1/lib0-lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib1-lib0/src/**/*.ts",
+              "libs/app1/lib0-lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib1-lib1",
+      "sourceRoot": "libs/app1/lib0-lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib1-lib1/src/**/*.ts",
+              "libs/app1/lib0-lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib1-lib2",
+      "sourceRoot": "libs/app1/lib0-lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib1-lib2/src/**/*.ts",
+              "libs/app1/lib0-lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib1-lib3",
+      "sourceRoot": "libs/app1/lib0-lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib1-lib3/src/**/*.ts",
+              "libs/app1/lib0-lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib1-lib4",
+      "sourceRoot": "libs/app1/lib0-lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib1-lib4/src/**/*.ts",
+              "libs/app1/lib0-lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib2",
+      "sourceRoot": "libs/app1/lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib2/src/**/*.ts",
+              "libs/app1/lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib2-lib0",
+      "sourceRoot": "libs/app1/lib0-lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib2-lib0/src/**/*.ts",
+              "libs/app1/lib0-lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib2-lib1",
+      "sourceRoot": "libs/app1/lib0-lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib2-lib1/src/**/*.ts",
+              "libs/app1/lib0-lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib2-lib2",
+      "sourceRoot": "libs/app1/lib0-lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib2-lib2/src/**/*.ts",
+              "libs/app1/lib0-lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib2-lib3",
+      "sourceRoot": "libs/app1/lib0-lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib2-lib3/src/**/*.ts",
+              "libs/app1/lib0-lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib2-lib4",
+      "sourceRoot": "libs/app1/lib0-lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib2-lib4/src/**/*.ts",
+              "libs/app1/lib0-lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib3",
+      "sourceRoot": "libs/app1/lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib3/src/**/*.ts",
+              "libs/app1/lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib3-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib3-lib0",
+      "sourceRoot": "libs/app1/lib0-lib3-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib3-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib3-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib3-lib0/src/**/*.ts",
+              "libs/app1/lib0-lib3-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib3-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib3-lib1",
+      "sourceRoot": "libs/app1/lib0-lib3-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib3-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib3-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib3-lib1/src/**/*.ts",
+              "libs/app1/lib0-lib3-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib3-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib3-lib2",
+      "sourceRoot": "libs/app1/lib0-lib3-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib3-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib3-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib3-lib2/src/**/*.ts",
+              "libs/app1/lib0-lib3-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib3-lib3",
+      "sourceRoot": "libs/app1/lib0-lib3-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib3-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib3-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib3-lib3/src/**/*.ts",
+              "libs/app1/lib0-lib3-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib3-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib3-lib4",
+      "sourceRoot": "libs/app1/lib0-lib3-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib3-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib3-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib3-lib4/src/**/*.ts",
+              "libs/app1/lib0-lib3-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib4",
+      "sourceRoot": "libs/app1/lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib4/src/**/*.ts",
+              "libs/app1/lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib4-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib4-lib0",
+      "sourceRoot": "libs/app1/lib0-lib4-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib4-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib4-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib4-lib0/src/**/*.ts",
+              "libs/app1/lib0-lib4-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib4-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib4-lib1",
+      "sourceRoot": "libs/app1/lib0-lib4-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib4-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib4-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib4-lib1/src/**/*.ts",
+              "libs/app1/lib0-lib4-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib4-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib4-lib2",
+      "sourceRoot": "libs/app1/lib0-lib4-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib4-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib4-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib4-lib2/src/**/*.ts",
+              "libs/app1/lib0-lib4-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib4-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib4-lib3",
+      "sourceRoot": "libs/app1/lib0-lib4-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib4-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib4-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib4-lib3/src/**/*.ts",
+              "libs/app1/lib0-lib4-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-lib4-lib4",
+      "sourceRoot": "libs/app1/lib0-lib4-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-lib4-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-lib4-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-lib4-lib4/src/**/*.ts",
+              "libs/app1/lib0-lib4-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1",
+      "sourceRoot": "libs/app1/lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1/src/**/*.ts",
+              "libs/app1/lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib0",
+      "sourceRoot": "libs/app1/lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib0/src/**/*.ts",
+              "libs/app1/lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib0-lib0",
+      "sourceRoot": "libs/app1/lib1-lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib0-lib0/src/**/*.ts",
+              "libs/app1/lib1-lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib0-lib1",
+      "sourceRoot": "libs/app1/lib1-lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib0-lib1/src/**/*.ts",
+              "libs/app1/lib1-lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib0-lib2",
+      "sourceRoot": "libs/app1/lib1-lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib0-lib2/src/**/*.ts",
+              "libs/app1/lib1-lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib0-lib3",
+      "sourceRoot": "libs/app1/lib1-lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib0-lib3/src/**/*.ts",
+              "libs/app1/lib1-lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib0-lib4",
+      "sourceRoot": "libs/app1/lib1-lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib0-lib4/src/**/*.ts",
+              "libs/app1/lib1-lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib1",
+      "sourceRoot": "libs/app1/lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib1/src/**/*.ts",
+              "libs/app1/lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib1-lib0",
+      "sourceRoot": "libs/app1/lib1-lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib1-lib0/src/**/*.ts",
+              "libs/app1/lib1-lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib1-lib1",
+      "sourceRoot": "libs/app1/lib1-lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib1-lib1/src/**/*.ts",
+              "libs/app1/lib1-lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib1-lib2",
+      "sourceRoot": "libs/app1/lib1-lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib1-lib2/src/**/*.ts",
+              "libs/app1/lib1-lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib1-lib3",
+      "sourceRoot": "libs/app1/lib1-lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib1-lib3/src/**/*.ts",
+              "libs/app1/lib1-lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib1-lib4",
+      "sourceRoot": "libs/app1/lib1-lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib1-lib4/src/**/*.ts",
+              "libs/app1/lib1-lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib2",
+      "sourceRoot": "libs/app1/lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib2/src/**/*.ts",
+              "libs/app1/lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib2-lib0",
+      "sourceRoot": "libs/app1/lib1-lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib2-lib0/src/**/*.ts",
+              "libs/app1/lib1-lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib2-lib1",
+      "sourceRoot": "libs/app1/lib1-lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib2-lib1/src/**/*.ts",
+              "libs/app1/lib1-lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib2-lib2",
+      "sourceRoot": "libs/app1/lib1-lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib2-lib2/src/**/*.ts",
+              "libs/app1/lib1-lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib2-lib3",
+      "sourceRoot": "libs/app1/lib1-lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib2-lib3/src/**/*.ts",
+              "libs/app1/lib1-lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib2-lib4",
+      "sourceRoot": "libs/app1/lib1-lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib2-lib4/src/**/*.ts",
+              "libs/app1/lib1-lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib3",
+      "sourceRoot": "libs/app1/lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib3/src/**/*.ts",
+              "libs/app1/lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib3-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib3-lib0",
+      "sourceRoot": "libs/app1/lib1-lib3-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib3-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib3-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib3-lib0/src/**/*.ts",
+              "libs/app1/lib1-lib3-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib3-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib3-lib1",
+      "sourceRoot": "libs/app1/lib1-lib3-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib3-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib3-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib3-lib1/src/**/*.ts",
+              "libs/app1/lib1-lib3-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib3-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib3-lib2",
+      "sourceRoot": "libs/app1/lib1-lib3-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib3-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib3-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib3-lib2/src/**/*.ts",
+              "libs/app1/lib1-lib3-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib3-lib3",
+      "sourceRoot": "libs/app1/lib1-lib3-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib3-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib3-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib3-lib3/src/**/*.ts",
+              "libs/app1/lib1-lib3-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib3-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib3-lib4",
+      "sourceRoot": "libs/app1/lib1-lib3-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib3-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib3-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib3-lib4/src/**/*.ts",
+              "libs/app1/lib1-lib3-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib4",
+      "sourceRoot": "libs/app1/lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib4/src/**/*.ts",
+              "libs/app1/lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib4-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib4-lib0",
+      "sourceRoot": "libs/app1/lib1-lib4-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib4-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib4-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib4-lib0/src/**/*.ts",
+              "libs/app1/lib1-lib4-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib4-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib4-lib1",
+      "sourceRoot": "libs/app1/lib1-lib4-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib4-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib4-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib4-lib1/src/**/*.ts",
+              "libs/app1/lib1-lib4-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib4-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib4-lib2",
+      "sourceRoot": "libs/app1/lib1-lib4-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib4-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib4-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib4-lib2/src/**/*.ts",
+              "libs/app1/lib1-lib4-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib4-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib4-lib3",
+      "sourceRoot": "libs/app1/lib1-lib4-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib4-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib4-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib4-lib3/src/**/*.ts",
+              "libs/app1/lib1-lib4-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib1-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib1-lib4-lib4",
+      "sourceRoot": "libs/app1/lib1-lib4-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib1-lib4-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib1-lib4-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib1-lib4-lib4/src/**/*.ts",
+              "libs/app1/lib1-lib4-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2",
+      "sourceRoot": "libs/app1/lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2/src/**/*.ts",
+              "libs/app1/lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib0",
+      "sourceRoot": "libs/app1/lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib0/src/**/*.ts",
+              "libs/app1/lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib0-lib0",
+      "sourceRoot": "libs/app1/lib2-lib0-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib0-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib0-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib0-lib0/src/**/*.ts",
+              "libs/app1/lib2-lib0-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib0-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib0-lib1",
+      "sourceRoot": "libs/app1/lib2-lib0-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib0-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib0-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib0-lib1/src/**/*.ts",
+              "libs/app1/lib2-lib0-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib0-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib0-lib2",
+      "sourceRoot": "libs/app1/lib2-lib0-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib0-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib0-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib0-lib2/src/**/*.ts",
+              "libs/app1/lib2-lib0-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib0-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib0-lib3",
+      "sourceRoot": "libs/app1/lib2-lib0-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib0-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib0-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib0-lib3/src/**/*.ts",
+              "libs/app1/lib2-lib0-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib0-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib0-lib4",
+      "sourceRoot": "libs/app1/lib2-lib0-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib0-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib0-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib0-lib4/src/**/*.ts",
+              "libs/app1/lib2-lib0-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib1",
+      "sourceRoot": "libs/app1/lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib1/src/**/*.ts",
+              "libs/app1/lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib1-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib1-lib0",
+      "sourceRoot": "libs/app1/lib2-lib1-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib1-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib1-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib1-lib0/src/**/*.ts",
+              "libs/app1/lib2-lib1-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib1-lib1",
+      "sourceRoot": "libs/app1/lib2-lib1-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib1-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib1-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib1-lib1/src/**/*.ts",
+              "libs/app1/lib2-lib1-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib1-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib1-lib2",
+      "sourceRoot": "libs/app1/lib2-lib1-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib1-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib1-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib1-lib2/src/**/*.ts",
+              "libs/app1/lib2-lib1-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib1-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib1-lib3",
+      "sourceRoot": "libs/app1/lib2-lib1-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib1-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib1-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib1-lib3/src/**/*.ts",
+              "libs/app1/lib2-lib1-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib1-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib1-lib4",
+      "sourceRoot": "libs/app1/lib2-lib1-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib1-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib1-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib1-lib4/src/**/*.ts",
+              "libs/app1/lib2-lib1-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib2",
+      "sourceRoot": "libs/app1/lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib2/src/**/*.ts",
+              "libs/app1/lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib2-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib2-lib0",
+      "sourceRoot": "libs/app1/lib2-lib2-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib2-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib2-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib2-lib0/src/**/*.ts",
+              "libs/app1/lib2-lib2-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib2-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib2-lib1",
+      "sourceRoot": "libs/app1/lib2-lib2-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib2-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib2-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib2-lib1/src/**/*.ts",
+              "libs/app1/lib2-lib2-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib2-lib2",
+      "sourceRoot": "libs/app1/lib2-lib2-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib2-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib2-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib2-lib2/src/**/*.ts",
+              "libs/app1/lib2-lib2-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib2-lib3",
+      "sourceRoot": "libs/app1/lib2-lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib2-lib3/src/**/*.ts",
+              "libs/app1/lib2-lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib2-lib4",
+      "sourceRoot": "libs/app1/lib2-lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib2-lib4/src/**/*.ts",
+              "libs/app1/lib2-lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib3",
+      "sourceRoot": "libs/app1/lib2-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib3/src/**/*.ts",
+              "libs/app1/lib2-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib3-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib3-lib0",
+      "sourceRoot": "libs/app1/lib2-lib3-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib3-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib3-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib3-lib0/src/**/*.ts",
+              "libs/app1/lib2-lib3-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib3-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib3-lib1",
+      "sourceRoot": "libs/app1/lib2-lib3-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib3-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib3-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib3-lib1/src/**/*.ts",
+              "libs/app1/lib2-lib3-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib3-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib3-lib2",
+      "sourceRoot": "libs/app1/lib2-lib3-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib3-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib3-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib3-lib2/src/**/*.ts",
+              "libs/app1/lib2-lib3-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib3-lib3",
+      "sourceRoot": "libs/app1/lib2-lib3-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib3-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib3-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib3-lib3/src/**/*.ts",
+              "libs/app1/lib2-lib3-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib3-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib3-lib4",
+      "sourceRoot": "libs/app1/lib2-lib3-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib3-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib3-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib3-lib4/src/**/*.ts",
+              "libs/app1/lib2-lib3-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib4",
+      "sourceRoot": "libs/app1/lib2-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib4/src/**/*.ts",
+              "libs/app1/lib2-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib4-lib0": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib4-lib0",
+      "sourceRoot": "libs/app1/lib2-lib4-lib0/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib4-lib0"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib4-lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib4-lib0/src/**/*.ts",
+              "libs/app1/lib2-lib4-lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib4-lib1": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib4-lib1",
+      "sourceRoot": "libs/app1/lib2-lib4-lib1/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib4-lib1"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib4-lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib4-lib1/src/**/*.ts",
+              "libs/app1/lib2-lib4-lib1/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib4-lib2": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib4-lib2",
+      "sourceRoot": "libs/app1/lib2-lib4-lib2/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib4-lib2"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib4-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib4-lib2/src/**/*.ts",
+              "libs/app1/lib2-lib4-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib4-lib3": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib4-lib3",
+      "sourceRoot": "libs/app1/lib2-lib4-lib3/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib4-lib3"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib4-lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib4-lib3/src/**/*.ts",
+              "libs/app1/lib2-lib4-lib3/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib2-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app1/lib2-lib4-lib4",
+      "sourceRoot": "libs/app1/lib2-lib4-lib4/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib2-lib4-lib4"],
+          "options": {
+            "jestConfig": "libs/app1/lib2-lib4-lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib2-lib4-lib4/src/**/*.ts",
+              "libs/app1/lib2-lib4-lib4/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "ng-build": {
       "root": "libs/ng-build",
       "sourceRoot": "libs/ng-build/src",

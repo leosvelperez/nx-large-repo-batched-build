@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'nx-large-repo-lib1component134',
+  templateUrl: './lib1component134.component.html',
+  styleUrls: ['./lib1component134.component.scss']
+})
+export class Lib1component134Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
