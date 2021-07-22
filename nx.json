@@ -326,6 +326,9 @@
     "app1-lib0": {
       "tags": []
     },
+    "app1-lib0-core": {
+      "tags": []
+    },
     "app1-lib0-lib0": {
       "tags": []
     },

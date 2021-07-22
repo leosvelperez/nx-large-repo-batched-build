@@ -260,6 +260,7 @@
         "libs/app0/lib2-lib4-lib4/src/index.ts"
       ],
       "@nx-large-repo/app1/lib0": ["libs/app1/lib0/src/index.ts"],
+      "@nx-large-repo/app1/lib0-core": ["libs/app1/lib0-core/src/index.ts"],
       "@nx-large-repo/app1/lib0-lib0": ["libs/app1/lib0-lib0/src/index.ts"],
       "@nx-large-repo/app1/lib0-lib0-lib0": [
         "libs/app1/lib0-lib0-lib0/src/index.ts"

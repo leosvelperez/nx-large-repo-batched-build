@@ -52,7 +52,7 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "serve": {
           "executor": "@nrwl/web:file-server",
@@ -3732,6 +3732,31 @@
             "lintFilePatterns": [
               "libs/app1/lib0/src/**/*.ts",
               "libs/app1/lib0/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "app1-lib0-core": {
+      "projectType": "library",
+      "root": "libs/app1/lib0-core",
+      "sourceRoot": "libs/app1/lib0-core/src",
+      "prefix": "nx-large-repo",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app1/lib0-core"],
+          "options": {
+            "jestConfig": "libs/app1/lib0-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app1/lib0-core/src/**/*.ts",
+              "libs/app1/lib0-core/src/**/*.html"
             ]
           }
         }

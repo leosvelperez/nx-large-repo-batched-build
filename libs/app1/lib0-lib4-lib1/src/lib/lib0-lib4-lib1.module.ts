@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Lib0CoreModule } from '@nx-large-repo/app1/lib0-core';
 import { Lib0Lib4Lib1component0Component } from './lib0-lib4-lib1component0/lib0-lib4-lib1component0.component';
 import { Lib0Lib4Lib1component1Component } from './lib0-lib4-lib1component1/lib0-lib4-lib1component1.component';
 import { Lib0Lib4Lib1component2Component } from './lib0-lib4-lib1component2/lib0-lib4-lib1component2.component';
@@ -203,7 +204,7 @@ import { Lib0Lib4Lib1component199Component } from './lib0-lib4-lib1component199/
 import { Lib0Lib4Lib1parentComponent } from './lib0-lib4-lib1parent/lib0-lib4-lib1parent.component';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, Lib0CoreModule],
   declarations: [
     Lib0Lib4Lib1component0Component,
     Lib0Lib4Lib1component1Component,
@@ -405,10 +406,8 @@ import { Lib0Lib4Lib1parentComponent } from './lib0-lib4-lib1parent/lib0-lib4-li
     Lib0Lib4Lib1component197Component,
     Lib0Lib4Lib1component198Component,
     Lib0Lib4Lib1component199Component,
-    Lib0Lib4Lib1parentComponent
+    Lib0Lib4Lib1parentComponent,
   ],
-  exports: [
-    Lib0Lib4Lib1parentComponent
-  ],
+  exports: [Lib0Lib4Lib1parentComponent],
 })
 export class Lib0Lib4Lib1Module {}
