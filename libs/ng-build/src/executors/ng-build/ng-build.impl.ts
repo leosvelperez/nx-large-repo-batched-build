@@ -12,6 +12,7 @@ import { appRootPath } from '@nrwl/tao/src/utils/app-root';
 import {
   createProjectGraphAsync,
   ProjectGraph,
+  readCurrentProjectGraph,
 } from '@nrwl/workspace/src/core/project-graph';
 import {
   calculateProjectDependencies,
@@ -122,7 +123,7 @@ async function generateTsConfig(
     files: [],
   };
 
-  const projGraph = await createProjectGraphAsync();
+  const projGraph = readCurrentProjectGraph();
   const paths = readPaths(joinPathFragments(appRootPath, 'tsconfig.base.json'));
 
   Object.entries(taskProjectsDetails).forEach(([task, taskProject]) => {
